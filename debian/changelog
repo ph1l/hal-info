@@ -1,0 +1,189 @@
+hal-info (20091130-1) unstable; urgency=low
+
+  * New upstream release.
+    - Recognize Creative MuVo 100 as USB music player. (Closes: #544235)
+  * Switch patch management system to quilt.
+  * Bump Standards-Version to 3.8.3. No further changes.
+  * debian/patches/15-suspend-quirks-asus-A2D.patch
+    - Apply correct suspend quirks for ASUS A2D laptops. (Closes: #525552)
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 01 Dec 2009 19:33:17 +0100
+
+hal-info (20090716-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fixes incorrect mapping of Fn+F5 key (KEY_WLAN) on Thinkpads.
+      (Closes: #504643, #535196)
+  * Bump Standards-Version to 3.8.2. No further changes.
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 07 Aug 2009 17:33:18 +0200
+
+hal-info (20090309-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 10 Mar 2009 17:30:49 +0100
+
+hal-info (20090202-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 14 Feb 2009 18:01:46 +0100
+
+hal-info (20081219-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 21 Dec 2008 10:26:53 +0100
+
+hal-info (20081127-1) unstable; urgency=low
+
+  * New upstream release. 
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 18 Dec 2008 23:31:57 +0100
+
+hal-info (20081022-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 26 Oct 2008 00:56:53 +0200
+
+hal-info (20081013-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 21 Oct 2008 01:03:36 +0200
+
+hal-info (20081001-1) unstable; urgency=low
+
+  * New upstream release. 
+  * debian/patches/10-ignore_huawei_e169_modem.patch 
+    - Add Huawei E169/E620 modem to the list of ignored devices as it is
+      spuriously detected as a CD-ROM drive. (Closes: #492486)
+  * debian/control
+    - Bump Standards-Version to 3.8.0. No further changes.  
+    - Drop Build-Depends on autotools-dev as hal-info is an arch: all package.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 09 Oct 2008 00:47:57 +0200
+
+hal-info (20080508+git20080601-1) unstable; urgency=low
+
+  * New upstream git snapshot
+  * Fixes suspend on ThinkPad X31 (Closes: #471772)
+  * Sets laptop_panel.brightness_in_hardware on Asus EeePC (Closes: #479091)
+  * Adds PM quirks for Gateway MT6920 (Closes: #480548)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 01 Jun 2008 17:46:38 +0200
+
+hal-info (20080508-1) unstable; urgency=low
+
+  * New upstream release.
+    - Adds keycode information for Samsung Q45 laptop. (Closes: #475851)
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 08 May 2008 02:35:02 +0200
+
+hal-info (20080317+git20080318-1) unstable; urgency=low
+
+  [ Michael Biebl ]
+  * New upstream release.
+
+  [ Sjoerd Simons ]
+  * Has suspend quirk for Asus Eee PC (Closes: #469648)
+  * Has suspend quirks for Lenevo T61 8897 (Closes: #470674)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Tue, 18 Mar 2008 15:10:45 +0100
+
+hal-info (20080215-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fixes a typo in 20-video-quirk-pm-lenovo.fdi. (Closes: #462012)
+  * debian/patches/00_disable_mpio_hd300_detection.patch
+    - Removed, merged upstream.
+  * debian/control
+    - Bump Standards-Version to 3.7.3. No further changes required.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 28 Feb 2008 08:24:59 +0100
+
+hal-info (20071212-2) unstable; urgency=low
+
+  * debian/patches/00_disable_mpio_hd300_detection.patch
+    - Added. Disable MPIO HD300 detection. The exact same usb controller is
+      used in some common usb disks, causing very annoying false positives
+      (Closes: #456675)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 22 Dec 2007 18:36:58 +0100
+
+hal-info (20071212-1) unstable; urgency=low
+
+  [ Sjoerd Simons ]
+  * New upstream release
+    - Adds suspend quirks information for IBM Thinkpad T41 (Closes: #448313)
+    - Adds suspend quirks information for Lenovo T61 with product id 6446*
+      (Closes: #448361)
+    - Adds music player information about the MPIO HD300 (Closes: #355967)
+    - Adds music player information about the Sony Ericsson K810i
+      (Closes: #436682)
+    - Prevents USB sticks with a Feiya Memory Bar controller from being
+       recognised as a Music player (Closes: #448214)
+    - Adds suspend quirks information for the HP Compaq 6710b (Closes: #451275)
+  * debian/patches/01-remove_useless_configure_check.patch
+    - Removed. fixed upstream
+  * Added myself to Uploaders
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Wed, 12 Dec 2007 23:19:11 +0100
+
+hal-info (20071030-1) unstable; urgency=low
+
+  * New upstream release.
+  * The Vcs-* fields are now officially supported, so remove the XS- prefix.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 01 Nov 2007 06:42:12 +0100
+
+hal-info (20071011-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch
+    - Update to new download location at http://hal.freedesktop.org/releases/.
+  * debian/patches/01-remove_useless_configure_check.patch
+    - Remove useless check for hal >= 0.5.10 at configure time.
+  * debian/control
+    - Use the new "Homepage:" field to specify the upstream URL.
+    - Bump Conflicts: hal to << 0.5.10. This hal-info version uses new
+      fdi-directives (like *_outof) which aren't supported by older hal
+      versions.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 22 Oct 2007 16:29:41 +0200
+
+hal-info (20070618-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/01_quirks_D410.patch
+    - Removed, merged upstream.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 19 Jun 2007 11:56:44 +0100
+
+hal-info (20070516-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/01_quirks_D410.patch
+    - Added. Use the correct suspend/resume quirks for the Dell D410 laptop.
+      (Closes: #424222)
+  * debian/rules
+    - Include simple-patchsys.mk
+  * debian/control
+    - Improve the package description. (Closes: #420697)
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 22 May 2007 10:32:16 +0200
+
+hal-info (20070402-1) unstable; urgency=low
+
+  * New upstream release.
+  * Upload to unstable. 
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 22 Apr 2007 19:11:38 +0200
+
+hal-info (20070326-1) experimental; urgency=low
+
+  * Initial release. (Closes: #413827)
+
+ -- Michael Biebl <biebl@debian.org>  Wed,  7 Mar 2007 12:26:22 +0100

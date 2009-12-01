@@ -1,0 +1,13 @@
+diff --git a/fdi/information/10freedesktop/20-video-quirk-pm-asus.fdi b/fdi/information/10freedesktop/20-video-quirk-pm-asus.fdi
+index fe29d1b..bbb75d7 100644
+--- a/fdi/information/10freedesktop/20-video-quirk-pm-asus.fdi
++++ b/fdi/information/10freedesktop/20-video-quirk-pm-asus.fdi
+@@ -9,7 +9,7 @@
+         <merge key="power_management.quirk.s3_mode" type="bool">true</merge>
+       </match>
+       <!--NOTE: s2ram list the F3F with power_management.quirk.none=true -->
+-      <match key="system.hardware.product" prefix_outof="M6VA;M6N ;M5N;M7A;S6F;S5N ;W3A;W5A ;M2N ;A2D ;F3F ;V6V;A8He;A6Kt ;F3JC ;F3Sc">
++      <match key="system.hardware.product" prefix_outof="M6VA;M6N ;M5N;M7A;S6F;S5N ;W3A;W5A ;M2N ;A2D;F3F ;V6V;A8He;A6Kt ;F3JC ;F3Sc">
+         <merge key="power_management.quirk.s3_bios" type="bool">true</merge>
+         <merge key="power_management.quirk.s3_mode" type="bool">true</merge>
+       </match>

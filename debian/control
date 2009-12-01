@@ -1,0 +1,30 @@
+Source: hal-info
+Section: admin
+Priority: optional
+Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Uploaders: Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Build-Depends: cdbs, debhelper (>= 5), quilt
+Standards-Version: 3.8.3
+Vcs-Svn: svn://svn.debian.org/svn/pkg-utopia/packages/unstable/hal-info
+Vcs-Browser: http://svn.debian.org/wsvn/pkg-utopia/packages/unstable/hal-info
+Homepage: http://hal.freedesktop.org/
+
+Package: hal-info
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: hal (<< 0.5.10)
+Replaces: hal (<< 0.5.9)
+Description: Hardware Abstraction Layer - fdi files
+ HAL provides an abstract view on hardware.
+ .
+ This abstraction layer is simply an interface that makes it possible to
+ add support for new devices and new ways of connecting devices to the
+ computer, without modifying every application that uses the device.
+ It maintains a list of devices that currently exist, and can provide
+ information about those upon request.
+ .
+ This package contains various device information files (also known
+ as .fdi files) for the hal package.
+ These fdi files contain additional information that help to describe the
+ hardware more detailed, such as suspend/resume quirks for laptops, music
+ player or photo camera types etc.

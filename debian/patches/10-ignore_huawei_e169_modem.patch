@@ -1,0 +1,17 @@
+Index: hal-info-20091130/fdi/preprobe/10osvendor/20-broken-usb-sticks.fdi
+===================================================================
+--- hal-info-20091130.orig/fdi/preprobe/10osvendor/20-broken-usb-sticks.fdi	2009-03-24 08:26:44.000000000 +0100
++++ hal-info-20091130/fdi/preprobe/10osvendor/20-broken-usb-sticks.fdi	2009-12-01 19:03:43.405029940 +0100
+@@ -55,6 +55,12 @@
+          </match>
+        </match>
+      </match>
++     <!-- Ignore the Huawei E169/E620 USB HSDPA modem -->
++     <match key="@storage.originating_device:usb.vendor_id" int="0x12d1">
++       <match key="@storage.originating_device:usb.product_id" int="0x1001">
++         <merge key="info.ignore" type="bool">true</merge>
++       </match>
++     </match>
+    </match>
+   </device>
+ </deviceinfo>
