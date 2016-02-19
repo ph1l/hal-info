@@ -1,0 +1,130 @@
+AC_PREREQ(2.57)
+
+AC_INIT(hal-info, esyscmd([tr -d '\n' < VERSION]), hal@lists.freedesktop.org)
+AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+AM_CONFIG_HEADER(config.h)
+
+AC_PROG_CC
+AC_PROG_LN_S
+
+PKG_PROG_PKG_CONFIG
+
+if ! $PKG_CONFIG --atleast-version 0.5.10 hal; then
+   AC_MSG_WARN([hal 0.5.10 or later is required for this version of hal-info])
+   WRONG_HAL_VERSION=yes
+else 
+   WRONG_HAL_VERSION=no
+fi
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we ship the recall data
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(recall, [  --enable-recall         include recall data],enable_recall=$enableval,enable_recall=yes)
+AM_CONDITIONAL(BUILD_RECALL, test x$enable_recall == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we ship the video suspend data
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(video, [  --enable-video          include video suspend data],enable_video=$enableval,enable_video=yes)
+AM_CONDITIONAL(BUILD_VIDEO, test x$enable_video == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we ship the video suspend data
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(video_default_quirks, [  --enable-video-nvidia-quirks         include NVIDIA video suspend data],enable_video_nvidia_quirks=$enableval,enable_video_nvidia_quirks=yes)
+AM_CONDITIONAL(BUILD_VIDEO_NVIDIA_QUIRKS, test x$enable_video_nvidia_quirks == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we ship the video suspend data
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(video_default_quirks, [  --enable-video-default-quirks         include default video suspend data],enable_video_default_quirks=$enableval,enable_video_default_quirks=yes)
+AM_CONDITIONAL(BUILD_VIDEO_DEFAULT_QUIRKS, test x$enable_video_default_quirks == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we ship the keymap data (makes random vendor keys work)
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(keymaps, [  --enable-keymaps        include key mapping data],enable_keymaps=$enableval,enable_keymaps=yes)
+AM_CONDITIONAL(BUILD_KEYMAPS, test x$enable_keymaps == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable WLAN killswitch support for Dell laptops?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_dell_wlan, [  --enable-killswitch-dell-wlan   Include support for Dell WLAN killswitch],enable_killswitch_dell_wlan=$enableval,enable_killswitch_dell_wlan=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_DELL_WLAN, test x$enable_killswitch_dell_wlan == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable Bluetooth killswitch support for Dell laptops?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_dell_bluetooth, [  --enable-killswitch-dell-bluetooth   Include support for Dell Bluetooth killswitch],enable_killswitch_dell_bluetooth=$enableval,enable_killswitch_dell_bluetooth=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_DELL_BLUETOOTH, test x$enable_killswitch_dell_bluetooth == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable WWAN killswitch support for Dell laptops?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_dell_wwan, [  --enable-killswitch-dell-wwan   Include support for Dell WWAN killswitch (requires hal >= 0.5.11)],enable_killswitch_dell_wwan=$enableval,enable_killswitch_dell_wwan=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_DELL_WWAN, test x$enable_killswitch_dell_wwan == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable Bluetooth killswitch support for Sony laptops?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_sony_bluetooth, [  --enable-killswitch-sony-bluetooth   Include support for Sony Bluetooth killswitch],enable_killswitch_sony_bluetooth=$enableval,enable_killswitch_sony_bluetooth=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_SONY_BLUETOOTH, test x$enable_killswitch_sony_bluetooth == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable Bluetooth killswitch support for ThinkPad laptops?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_thinkpad_bluetooth, [  --enable-killswitch-thinkpad-bluetooth   Include support for Thinkpad Bluetooth killswitch (requires hal >= 0.5.11)],enable_killswitch_thinkpad_bluetooth=$enableval,enable_killswitch_thinkpad_bluetooth=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_THINKPAD_BLUETOOTH, test x$enable_killswitch_thinkpad_bluetooth == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable WLAN killswitch support for ipw chipsets?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_ipw_wlan, [  --enable-killswitch-ipw-wlan   Include support for IPW WLAN killswitch (requires hal >= 0.5.10)],enable_killswitch_ipw_wlan=$enableval,enable_killswitch_ipw_wlan=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_IPW_WLAN, test x$enable_killswitch_ipw_wlan == xyes)
+
+dnl ---------------------------------------------------------------------------
+dnl - Should we enable WLAN killswitch support for iwl chipsets?
+dnl ---------------------------------------------------------------------------
+AC_ARG_ENABLE(killswitch_iwl_wlan, [  --enable-killswitch-iwl-wlan   Include support for IWL WLAN killswitch (requires hal >= 0.5.10)],enable_killswitch_iwl_wlan=$enableval,enable_killswitch_iwl_wlan=yes)
+AM_CONDITIONAL(BUILD_KILLSWITCH_IWL_WLAN, test x$enable_killswitch_iwl_wlan == xyes)
+
+AC_OUTPUT([
+Makefile
+fdi/Makefile
+fdi/information/Makefile
+fdi/information/10freedesktop/Makefile
+fdi/information/20thirdparty/Makefile
+fdi/preprobe/Makefile
+fdi/preprobe/10osvendor/Makefile
+fdi/preprobe/20thirdparty/Makefile
+tools/Makefile
+])
+
+dnl ==========================================================================
+echo "
+                        hal-info $VERSION
+                     ======================== "
+if test x$WRONG_HAL_VERSION = xyes; then
+echo "  
+	================ !!! WARNING !!! ========================
+  	     You use a too old HAL version! You need at least
+               hal >= 0.5.10 to use this hal-info version!
+        ========================================================="
+fi
+echo "
+        prefix:                                     ${prefix}
+        datarootdir:                                ${datarootdir:-unused}
+        datadir:                                    ${datadir}
+        sysconfdir:                                 ${sysconfdir}
+        hardware recall data:                       ${enable_recall}
+        video suspend data:                         ${enable_video}
+        video suspend default quirks:               ${enable_video_default_quirks}
+        video suspend default NVIDIA quirks:        ${enable_video_nvidia_quirks}
+        killswitch support for Dell wlan:           ${enable_killswitch_dell_wlan}
+        killswitch support for Dell Bluetooth:      ${enable_killswitch_dell_bluetooth}
+        killswitch support for Dell wwan:           ${enable_killswitch_dell_wwan} (requires hal >= 0.5.11)
+        killswitch support for Sony Bluetooth:      ${enable_killswitch_sony_bluetooth}
+        killswitch support for ThinkPad Bluetooth:  ${enable_killswitch_thinkpad_bluetooth} (requires hal >= 0.5.11)
+        killswitch support for IPW wlan:            ${enable_killswitch_ipw_wlan} (requires hal >= 0.5.10)
+        killswitch support for IWL wlan:            ${enable_killswitch_iwl_wlan} (requires hal >= 0.5.10)
+"

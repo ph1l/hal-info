@@ -1,0 +1,326 @@
+=================
+hal-info 20080508
+=================
+
+Changelog since 20071212:
+
+Adam Williamson (1):
+      support Nokia 6300 as a music device
+
+Alexander Jones (1):
+      added Nokia 5300 to USB mp3 musicplayer
+
+Alexey Fisher (2):
+      added suspend quirks for Asus P5LD2
+      add hama card reader to 10-usb-card-readers.fdi
+
+Alexey Rempel (1):
+      add one more usb id for iRiver T10 1G
+
+Bastien Nocera (1):
+      added Sony Ericsson K850i to USB mp3 players
+
+Ben Liblit (2):
+      suspend video quirk for ThinkPad X61
+      added support for software bluetooth killswitch for ThinkPads
+
+Benjamin Delagoutte (1):
+      added Sony Ericsson W880i to USB mp3 musicplayers
+
+Brouard Nicolas (1):
+      Added keymaps for two Sony Laptops
+
+Carlos Berroterán (1):
+      add keymap for Dell Inpsiron 1520
+
+Carlos Corbacho (8):
+      add keymap for Acer Ferrari 5000 series
+      fix Acer TravelMate 4650 keymap
+      fix Acer TravelMate 5620 keymap for brightness up
+      add Acer Aspire 3680, 5570 & 5580 keymaps
+      Acer Aspire 1350 Keymap
+      add keymap for Acer Aspire 4720
+      add keymap for Acer Aspire 9300
+      Remove bad key from Acer keymappings
+
+Chuck Anderson (1):
+      add one more usb id for iRiver T10 1G
+
+Colin Macdonald (1):
+      added Lenovo Thinkpad X61s suspend quirk
+
+Constantin Bergemann (1):
+      add keymap for Acer Travelmate 8100
+
+Dan Williams (14):
+      tag many known modems with the modem property and supported command sets
+      update makefile for 10-modem.fdi
+      Released hal-info 20080215
+      identify modems and mobile broadband cards
+      Add Dell 5720/Novatel Expedite E725
+      BUSlink UM-864GW is GPRS, not CDMA
+      Fix Kyocera KPC-650 modem tags
+      Tag only serial.port=0 as a modem
+      Fix Sierra MC5720 modem tagging
+      Tag Option Fusion+ UMTS HSDPA card as a GSM modem
+      Tag Novatel U727 (product 0x5010) as a CDMA modem
+      Tag Best Data 56Kbps Fax Modem PC Card as a modem
+      Add CDMA Novatel S620
+      Sierra 8xx: tag first port only as a modem
+
+Daniel Qarras (1):
+      add CDC ACM Modem
+
+Daniel Tschinder (1):
+      added keymap for Acer Aspire 5600
+
+Daniele C (1):
+      hal-info patch for Maxdata Pro 7000DX
+
+Danny Kukawka (81):
+      Revert "the Ferrari 5000 has the same key mapping stuff as the Ferrari 1000 and 4000"
+      added keymap for Acer TravelMate 5720
+      suspend quirk for Fujitsu Siemens Lifebook P7120
+      added suspend quirk for LG W1
+      fixed keymapping for HP machines (added before by myself)
+      added keymapping for HP 6710b
+      fixed detection of Dell as vendor for rfkill-switch-wlan
+      added suspend quirk for BenQ Joybook R23
+      changed suspend quirk for Lenovo X61t to match more models
+      fixed keymap of HP Compaq nx5000
+      added keymap for a HP zd7000
+      fixed Dell WWAN fdi file to add device only if dcdbas loaded
+      added suspend video quirks for a Packard Bell EasyNote SJ51
+      added suspend quirk for a HP nx6110
+      Revert "identify modems and mobile broadband cards"
+      cleaned up modem list
+      added suspend quirk for IBM Z60m
+      fixed entry for Sansa Clip
+      cleaned up 10-usb-pda.fdi
+      removed deprecated and outdated info.bus
+      removed deprecated and outdated smbios.* keys
+      s/AMR/amr/ and s/AMR-WB/amr-wb/
+      added suspend quirks for a HP Omnibook 6100
+      fixed killswitch related configure information
+      added suspend quirk for Lenovo ThinkPad R61
+      added Cowon iAudio 7 music player
+      added keymap for HP Compaq 6910p
+      fixed comment in 30-keymap-module-sony-laptop.fdi
+      ported USB (mass storage) music players to new keys
+      port PSP as musicplayer correctly
+      remove some iRiver USB music players (now in libmpt)
+      changed key mapping for sony-laptop to match complete VGN-TZ11 series
+      cleanup suspend quirks for Samsung UMPC R40/R41
+      add suspend quirk for a Samsung P35
+      fixed suspend quirk for Dell a Inspiron (MM061)
+      fixed suspend entries for some Acer machines
+      updated suspend quirks with entries from s2ram CVS -r1.116
+      updated Acer quirks with entries from s2ram CVS -r1.118
+      updated Asus quirks with entries from s2ram CVS -r1.118
+      updated Dell quirks with entries from s2ram CVS -r1.118
+      updated Fujitsu quirks with entries from s2ram CVS -r1.118
+      updated HP quirks with entries from s2ram CVS -r1.118
+      updated Lenovo quirks with entries from s2ram CVS -r1.118
+      updated Toshiba quirks with entries from s2ram CVS -r1.118
+      updated Sony quirks with entries from s2ram CVS -r1.118
+      updated misc quirks with entries from s2ram CVS -r1.118
+      updated Acer quirks with entries from s2ram CVS -r1.119
+      updated Asus quirks with entries from s2ram CVS -r1.119
+      updated Dell quirks with entries from s2ram CVS -r1.119
+      updated Fujitsu quirks with entries from s2ram CVS -r1.119
+      updated Lenovo quirks with entries from s2ram CVS -r1.119
+      updated Sony/Samsung/misc quirks with entries from s2ram CVS -r1.119
+      updated suspend quirks with entries from s2ram CVS -r1.119
+      fixed wrong used non existing fdi-directive
+      added a multi-card Reader from Genesys Logic
+      add new Telstra/NextG CDMA card as modem
+      fixed USB music player detection
+      added suspend quirks for a Clevo M720SR
+      added new key to map for a FSC Amilo V3205
+      fixed entry for the Sony Ericsson K320i phone
+      added keymap for a HP nc2510p
+      fixed some *_outof matches
+      fixed some USB mp3 player entries
+      added suspend quirk for a Acer Extensa 5620
+      add suspend quirk for a HP Pavilion 2670 (dv2600)
+      updated Apple suspend quirks with s2ram whitelist entries from -r1.121
+      updated Acer suspend quirks with s2ram whitelist entries from -r1.121
+      updated Asus suspend quirks with s2ram whitelist entries from -r1.121
+      updated Dell suspend quirks with s2ram whitelist entries from -r1.121
+      updated HP suspend quirks with s2ram whitelist entries from -r1.121
+      updated HP suspend quirks with s2ram whitelist entries from -r1.121
+      updated IBM suspend quirks with s2ram whitelist entries from -r1.121
+      updated Lenovo suspend quirks with s2ram whitelist entries from -r1.121
+      updated Samsung/Toshiba suspend quirks with s2ram entries from -r1.121
+      updated Sony suspend quirks with s2ram whitelist entries from -r1.121
+      updated misc. suspend quirks with s2ram whitelist entries from -r1.121
+      added a HP HS2300 (Sierra Wireless MC8775) UMTS modem
+      fixed suspend quirk for a HP nx6110
+      fixed suspend quirk for a Dell Inspiron 1420n
+      merged keymaps of Dell D820 to existing of D420
+      add support for Q-be music player
+
+Daryl Blanc (1):
+      added keymap for a Sony VGN-SZ71WN_C
+
+David Zeuthen (2):
+      avoid showing fake cdrom drive on SanDisk Cruzer
+      Released hal-info 20080310
+
+Dawid Wróbel (2):
+      added keymap for a Dell Precision M20
+      added suspend quirks for a Dell Precision M20
+
+Eetu Huisman (1):
+      added TrekStor Blaxx music player
+
+Faidon Liambotis (1):
+      add a WWAN (Wireless WAN/Cellular) killswitch for Dell laptops
+
+Fernando Muñoz (1):
+      added Lyra TH1501 music player
+
+Francisco Neto (1):
+      added CLEVO M5X0JE suspend quirks
+
+Fred de St. Croix (1):
+      added suspend quirk for a Sony VGN-NR120E
+
+Frederic Crozat (3):
+      add keymap database to tarball and add some missing keycodes
+      fix hal-info check
+      add keymap support for HP nx9420
+
+Guillaume Charhon (1):
+      add keymap for a Sony Vaio VGN-S5VP
+
+Jakub Štiller (1):
+      added keymap for a FSC Amilo V3205
+
+Jarod Wilson (1):
+      Quirk addition for new T61 model 6465CTO
+
+Jason Merrill (1):
+      for Thinkpad T43 we check the video manufacturer rather than the Thinkpad model number
+
+Jean-Denis Girard (1):
+      added suspend quirk for Samsung Q30
+
+Jeff Mitchell (2):
+      D'oh, I forgot to get this in before 0.5.10 was released.  Oh well.  Fix the Rio Karma entry to expose the access protocol.  Karmas are not simply generic
+      Screwed up whitespacing somehow with my last commit...fix it.
+
+Jelle Geerts (1):
+      added Acer 5633WLMi suspend quirk
+
+John A. Hull (1):
+      add Sansa clip info for USB music players
+
+Julian Sikorski (1):
+      keymap for a Toshiba Satellite A100
+
+Kevin Page (1):
+      update for PalmOS USB handhelds
+
+Lubomir Kundrak (3):
+      fix typo in R61i support
+      added another Lenovo R61i
+      added another ThinkPad X61 suspend quirk
+
+Mark Edgington (1):
+      added Olympus DS-2 voice recorder to USB mp3 player
+
+Martin Pitt (4):
+      added Samsung Yepp YP-K3 music player
+      fixed suspend quirks for Asus V6V
+      added Suspend quirk for Thinkpad X31 with Radeon M6
+      add another X31 model suspend quirk
+
+Michal Čihař (1):
+      suspend quirk for Toshiba Satellite Pro M30
+
+Mikko Vatanen (1):
+      suspend quirk for Fujitsu Siemens AMILO Li1718
+
+MrLoba (1):
+      add support for Fn+F1 and Fn+F6 on HP Pavilion DV5000
+
+Nicholas Brekhus (1):
+      Adds suspend support for IBM x40 systems
+
+Oldrich Jedlicka (1):
+      added keymap for Acer TravelMate 4500
+
+Oliver Gerlich (1):
+      added Mobile Media Tech no-name music player
+
+Onkar Shinde (1):
+      add Sony Ericsson K320i phone as USB music player
+
+Patrik Fimml (1):
+      add suspend quirks for Acer Extensa 5220
+
+Paul Menzel (1):
+      hal-info keyboard support for BenQ R22e
+
+Pavel Šefránek (1):
+      added HP 530 keymap quirk
+
+Pedro Matos Jr (1):
+      added keymap for a Sony Vaio VGN-FZ140E
+
+Richard Hughes (3):
+      the Ferrari 5000 has the same key mapping stuff as the Ferrari 1000 and 4000
+      fix an obvious bug for dell laptops when pressing the brightness down button.
+      add another id for a T61p
+
+Sam Morris (2):
+      added suspend quirk for a Samsung Q45
+      added keymap info for Samsung Q45
+
+Sjoerd Simons (5):
+      comment the MPIO HD300 detection. It gives too many false-positives
+      added video quirks for HP 2510p
+      added suspend quirks for Asus Eee PC
+      add comment that the asus 701 is an Eee PC
+      add quirk for Lenevo T61 8897
+
+Stepan Zastupov (1):
+      add suspend quirk for BenQ Joybook R42
+
+Stephane Loeuillet (1):
+      added Creative Zen Stone Plus as USB mp3 player
+
+Steve Tyler (1):
+      video quirk for ASUS Z91E (aka A3E)
+
+Szymon M. Rusinkiewicz (1):
+      added suspend quirk for a Dell Latitude D530
+
+Thomas Reifenberger (1):
+      add suspend quirk for Acer Aspire 5500
+
+Thomas Renninger (1):
+      added keymap for HP 6715
+
+Thorsten Kocher (1):
+      suspend quirk for IBM ThinkPad R50p
+
+Tim Ansell (1):
+      added suspend quirks for a Sony Vaio VGN-TZ16GN
+
+Ulf Gattner (1):
+      added keymap for Samsung P55-Pro
+
+Valent Turkovic (1):
+      added keymap for a HP Pavilion 6426us (dv6000)
+
+rehan khan (1):
+      hp tx1000 hal-info keymap patch
+
+=================
+hal-info 20061024
+=================
+
+Updates to:
+ * foo.
